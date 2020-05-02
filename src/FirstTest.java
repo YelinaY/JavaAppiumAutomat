@@ -41,13 +41,26 @@ public class FirstTest {
 
     WebElement element3 = waitForElementPresentByXpath("//*[contains(@text,'ADD LANGUAGE')]", "Cannot find element");
         element3.click();
-
+/*
     WebElement element4 = waitForElementPresentByXpath("//android.widget.TextView[@content-desc=\"Search for a language\"]",
             "Cannot find element");
     element4.click();
-
-    WebElement element5 = waitForElementPresentByXpath("//*[contains(@text,'Search for a language')]", "Cannot find element");
+*/
+waitForElementAndClick(
+        "//android.widget.TextView[@content-desc=\"Search for a language\"]",
+        "Cannot find element",
+        5
+        );
+ /* WebElement element5 = waitForElementPresentByXpath("//*[contains(@text,'Search for a language')]", "Cannot find element");
     element5.sendKeys("English");
+*/
+waitForElementAndSendKeys(
+        "//*[contains(@text,'Search for a language')]",
+        "English",
+        "Cannot find element",
+         5
+);
+
     waitForElementPresentByXpath(
             "//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']",
             "Cannot find element search by the text 'Old English'",
@@ -67,5 +80,14 @@ public class FirstTest {
   private WebElement waitForElementPresentByXpath(String xpath, String error_message) {
         return waitForElementPresentByXpath(xpath, error_message, 5);
   }
-
+private WebElement waitForElementAndClick(String xpath, String error_message, long timeoutInSeconds){
+    WebElement element= waitForElementPresentByXpath(xpath, error_message, timeoutInSeconds);
+    element.click();
+    return element;
+}
+  private WebElement waitForElementAndSendKeys(String xpath, String value, String error_message, long timeoutInSeconds) {
+    WebElement element = waitForElementPresentByXpath(xpath, error_message, timeoutInSeconds);
+    element.sendKeys(value);
+    return element;
+  }
 }
