@@ -34,15 +34,25 @@ public class FirstTest {
   }
   @Test
   public  void firstTest(){
-    WebElement element = driver.findElementByXPath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]");
-    element.click();
-    WebElement elementk = waitForElementPresentByXpath("//*[contains(@text,'ADD LANGUAGE')]", "Cannot find element", 5);
-        elementk.click();
+    WebElement element1 = driver.findElementByXPath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]");
+    element1.click();
 
-    //android.widget.TextView[@content-desc="Search for a language"]
+    WebElement element2 = waitForElementPresentByXpath("//*[contains(@text,'ADD LANGUAGE')]", "Cannot find element", 5);
 
-    //WebElement element_to_enter_search_line = driver.findElementByXPath("//*[contains(@text,'Search for a language')]");
-    //element_to_enter_search_line.sendKeys("English");
+    WebElement element3 = waitForElementPresentByXpath("//*[contains(@text,'ADD LANGUAGE')]", "Cannot find element");
+        element3.click();
+
+    WebElement element4 = waitForElementPresentByXpath("//android.widget.TextView[@content-desc=\"Search for a language\"]",
+            "Cannot find element");
+    element4.click();
+
+    WebElement element5 = waitForElementPresentByXpath("//*[contains(@text,'Search for a language')]", "Cannot find element");
+    element5.sendKeys("English");
+    waitForElementPresentByXpath(
+            "//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']",
+            "Cannot find element search by the text 'Old English'",
+            15
+    );
 
    //System.out.println("First test run");
     }
@@ -52,6 +62,10 @@ public class FirstTest {
     wait.withMessage(error_message + "\n");
     By by = By.xpath(xpath);
     return wait.until(ExpectedConditions.presenceOfElementLocated(by));
+  }
+
+  private WebElement waitForElementPresentByXpath(String xpath, String error_message) {
+        return waitForElementPresentByXpath(xpath, error_message, 5);
   }
 
 }
