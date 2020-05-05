@@ -36,47 +36,21 @@ public class FirstTest {
 
   @Test
   public void testCancelSearch() {
-    WebElement element1 = driver.findElementByXPath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]");
-    element1.click();
+    waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
 
-    WebElement element2 = waitForElementPresent(
-            By.xpath("//*[contains(@text,'ADD LANGUAGE')]"),
-            "Cannot find element",
-            5);
+    waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
 
-    WebElement element3 = waitForElementPresent(
-           By.xpath("//*[contains(@text,'ADD LANGUAGE')]"),
-            "Cannot find element");
-    element3.click();
+    waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
 
-    waitForElementAndClick(
-            By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"),
-            "Cannot find element",
-            5);
+    waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), "English", "Cannot find element", 5);
 
-    waitForElementAndSendKeys(
-            By.xpath("//*[contains(@text,'Search for a language')]"),
-            "English", "Cannot find element",
-            5);
+    waitForElementPresent(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
 
-    waitForElementPresent(
-            By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"),
-            "Cannot find element search by the text 'Old English'",
-            15);
-
-    //System.out.println("First test run");
-
-    waitForElementPresent(
-            By.id("org.wikipedia:id/search_close_btn"), //button "X"
+    waitForElementPresent(By.id("org.wikipedia:id/search_close_btn"), //button "X"
             "Can not find 'Search input'", 5);
 
-    waitForElementPresentAndClick(
-            By.id("org.wikipedia:id/search_close_btn"),
-            "Can not find 'button 'X'",
-            5);
-    waitForElementNotPresent(
-            By.id("org.wikipedia:id/search_close_btn"),
-            "Element 'X' still present", 5);
+    waitForElementPresentAndClick(By.id("org.wikipedia:id/search_close_btn"), "Can not find 'button 'X'", 5);
+    waitForElementNotPresent(By.id("org.wikipedia:id/search_close_btn"), "Element 'X' still present", 5);
   }
 
   private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds) {
@@ -89,7 +63,7 @@ public class FirstTest {
     return waitForElementPresent(by, error_message, 5);
   }
 
-  private WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds) {
+  private WebElement waitForElementPresentAndClick(By by, String error_message, long timeoutInSeconds) {
     WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
     element.click();
     return element;
@@ -98,13 +72,6 @@ public class FirstTest {
   private WebElement waitForElementAndSendKeys(By by, String value, String error_message, long timeoutInSeconds) {
     WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
     element.sendKeys(value);
-    return element;
-  }
-
-
-  private WebElement waitForElementPresentAndClick(By by, String error_message, long timeoutInSeconds) {
-    WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
-    element.click();
     return element;
   }
 
