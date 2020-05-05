@@ -1,6 +1,7 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -45,6 +46,17 @@ public class FirstTest {
     waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), "English", "Cannot find element", 5);
 
     waitForElementPresent(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
+
+    WebElement subtitle = waitForElementPresent(
+            By.id("org.wikipedia:id/language_subtitle"),
+            "Can not find subtitle",
+            10);
+     String subtitl = subtitle.getAttribute("text");
+    Assert.assertEquals(
+            "We see unexpected subtitle",
+            "Simple English",
+            subtitl
+    );
 
     waitForElementAndClear(
             By.id("org.wikipedia:id/search_src_text"), // Стираю текст с поля 
