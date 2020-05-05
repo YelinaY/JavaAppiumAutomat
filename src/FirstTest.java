@@ -46,10 +46,15 @@ public class FirstTest {
 
     waitForElementPresent(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
 
+    waitForElementAndClear(
+            By.id("org.wikipedia:id/search_src_text"), // Стираю текст с поля 
+            "Can not find search field",
+            5 );
+    /*
     waitForElementPresent(By.id("org.wikipedia:id/search_close_btn"), //button "X"
             "Can not find 'Search input'", 5);
-
     waitForElementPresentAndClick(By.id("org.wikipedia:id/search_close_btn"), "Can not find 'button 'X'", 5);
+    */
     waitForElementNotPresent(By.id("org.wikipedia:id/search_close_btn"), "Element 'X' still present", 5);
   }
 
@@ -79,5 +84,10 @@ public class FirstTest {
     WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
     wait.withMessage(error_message + "\n");
     return wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+  }
+  private WebElement waitForElementAndClear(By by, String erro_message, long timeoutInSeconds){
+    WebElement element = waitForElementPresent(by, erro_message, timeoutInSeconds);
+    element.clear();
+    return  element;
   }
 }
