@@ -45,11 +45,15 @@ public class FirstTest {
 
     waitForElementPresent(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
 
-    swipeUp(2000); //прокрутка страницы вниз
-    swipeUp(2000);
-    swipeUp(2000);
-    swipeUp(2000);
-    swipeUp(2000);
+     //прокрутка страницы вниз  swipeUp(2000);
+     //Прокрутка до искомого элемента
+
+    swipeUpToFindElement(
+            By.xpath("//*[@text='Nederlands']"),
+            "Can not find element 'Nederlands' by the swiping",
+           40
+
+    );
 
     waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
 
@@ -118,5 +122,24 @@ public class FirstTest {
     int end_y = (int) (size.height * 0.2);
     action.press(x, start_y).waitAction(timeOfSwipe).moveTo(x, end_y).release().perform();
 
+  }
+  //быстрая прокрутка вниз
+  protected void swipeUpQuick(){
+    swipeUp(200);
+  }
+  //быстрая прокрутка до искомого элемента (если элемент не найден - цикл прокрутки останавливается с ошибкой)
+  protected  void swipeUpToFindElement (By by, String error_message, int max_swipes){
+    driver.findElements(by);
+    driver.findElements(by).size();
+    int already_swiped = 0;
+    while (driver.findElements(by).size()==0){
+      if (already_swiped > max_swipes){
+        waitForElementPresent(by, "Can not find element by swiping up. \n" + error_message, 0);
+        return;
+      }
+      swipeUpQuick();
+      ++already_swiped;
+
+    }
   }
 }
