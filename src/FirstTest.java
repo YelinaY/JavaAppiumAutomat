@@ -1,10 +1,12 @@
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,30 +43,32 @@ public class FirstTest {
 
     waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
 
+    waitForElementPresent(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+
+    swipeUp(2000); //прокрутка страницы вниз
+    swipeUp(2000);
+    swipeUp(2000);
+    swipeUp(2000);
+    swipeUp(2000);
+
     waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
 
     waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), "English", "Cannot find element", 5);
 
     waitForElementPresent(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
 
-    WebElement subtitle = waitForElementPresent(
-            By.id("org.wikipedia:id/language_subtitle"),
-            "Can not find subtitle",
-            10);
-     String subtitl = subtitle.getAttribute("text");
-    Assert.assertEquals(
-            "We see unexpected subtitle",
-            "Simple English",
-            subtitl
-    );
+    //Проверка на наличие теска (assert - exp. result Text "Simple English")
+    WebElement subtitle = waitForElementPresent(By.id("org.wikipedia:id/language_subtitle"), "Can not find subtitle", 10);
+    String subtitl = subtitle.getAttribute("text");
+    Assert.assertEquals("We see unexpected subtitle", "Simple English", subtitl);
 
-    waitForElementAndClear(
-            By.id("org.wikipedia:id/search_src_text"), // Стираю текст с поля 
-            "Can not find search field",
-            5 );
-    /*
+    //Стереть текст из поля ввода
+    waitForElementAndClear(By.id("org.wikipedia:id/search_src_text"), // Стираю текст с поля
+            "Can not find search field", 5);
+    /* Ожидать элемент "X"
     waitForElementPresent(By.id("org.wikipedia:id/search_close_btn"), //button "X"
             "Can not find 'Search input'", 5);
+           Oжидать элемент "X"  и кликнуть на него
     waitForElementPresentAndClick(By.id("org.wikipedia:id/search_close_btn"), "Can not find 'button 'X'", 5);
     */
     waitForElementNotPresent(By.id("org.wikipedia:id/search_close_btn"), "Element 'X' still present", 5);
@@ -75,11 +79,12 @@ public class FirstTest {
     wait.withMessage(error_message + "\n");
     return wait.until(ExpectedConditions.presenceOfElementLocated(by));
   }
-/*
-  private WebElement waitForElementPresent(By by, String error_message) {
-    return waitForElementPresent(by, error_message, 5);
-  }
-*/
+
+  /*
+    private WebElement waitForElementPresent(By by, String error_message) {
+      return waitForElementPresent(by, error_message, 5);
+    }
+  */
   private WebElement waitForElementPresentAndClick(By by, String error_message, long timeoutInSeconds) {
     WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
     element.click();
@@ -97,9 +102,21 @@ public class FirstTest {
     wait.withMessage(error_message + "\n");
     return wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
   }
-  private WebElement waitForElementAndClear(By by, String erro_message, long timeoutInSeconds){
+
+  private WebElement waitForElementAndClear(By by, String erro_message, long timeoutInSeconds) {
     WebElement element = waitForElementPresent(by, erro_message, timeoutInSeconds);
     element.clear();
-    return  element;
+    return element;
+  }
+
+  //прокрутка страницы сверху вниз
+  protected void swipeUp(int timeOfSwipe) {
+    TouchAction action = new TouchAction(driver);
+    Dimension size = driver.manage().window().getSize();
+    int x = size.width / 2;
+    int start_y = (int) (size.height * 0.8);
+    int end_y = (int) (size.height * 0.2);
+    action.press(x, start_y).waitAction(timeOfSwipe).moveTo(x, end_y).release().perform();
+
   }
 }
