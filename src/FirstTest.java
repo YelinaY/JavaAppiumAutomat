@@ -38,6 +38,25 @@ public class FirstTest {
   }
 
   @Test
+  public void testSwipeToLeftAndRite(){
+    waitForElementPresent(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 10);
+
+    waitForElementPresentAndClick(
+            By.xpath("//android.widget.ImageView[@content-desc=\"Continue\"]"),
+                   "Cannot find element",
+                    30);
+    waitForElementPresent(
+           By.xpath("//*[contains(@text,'New ways to explore')]"), "Cannot find element", 10);
+   swipElementToLeft(
+           By.xpath("//*[contains(@text,'New ways to explore')]"), "Cannot find element");
+
+    waitForElementPresent(
+            By.xpath("//*[contains(@text,'Reading lists with sync')]"), "Cannot find element", 5);
+    }
+
+
+
+  @Test
   public void testCancelSearch() {
     waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
 
@@ -141,5 +160,23 @@ public class FirstTest {
       ++already_swiped;
 
     }
+  }
+  protected void swipElementToLeft (By by, String error_message)
+  {
+    WebElement element = waitForElementPresent(by, error_message, 10);
+
+    int left_x = element.getLocation().getX();
+    int right_x = left_x + element.getSize().getWidth();
+    int upper_y = element.getLocation().getY();
+    int lower_y = upper_y + element.getSize().getHeight();
+    int middle_y = (upper_y + lower_y)/2;
+
+    TouchAction action = new TouchAction(driver);
+    action
+            .press(right_x, middle_y)
+            .waitAction(150)
+            .moveTo(left_x, middle_y)
+            .release()
+            .perform();
   }
 }
