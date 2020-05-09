@@ -76,9 +76,13 @@ public class FirstTest {
 
     waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
 
-    waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), "English", "Cannot find element", 5);
+    //Ввожу переменную "English"
+    String subtitle_of_language = "English";
+    waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
 
     waitForElementPresent(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
+
+
 
     //Проверка на наличие теска (assert - exp. result Text "Simple English")
     WebElement subtitle = waitForElementPresent(By.id("org.wikipedia:id/language_subtitle"), "Can not find subtitle", 10);
