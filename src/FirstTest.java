@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
+import java.util.List;
 
 public class FirstTest {
   private AppiumDriver driver;
@@ -101,6 +102,31 @@ public class FirstTest {
     waitForElementNotPresent(By.id("org.wikipedia:id/search_close_btn"), "Element 'X' still present", 5);
   }
 
+
+  @Test
+  public void testAmountOfNotEmptySearch() {
+    waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
+
+    waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
+
+    waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+
+    //Ввожу переменную "English"
+    String subtitle_of_language = "YUFYYFYTFD";
+    waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
+
+    String search_result_locator = "//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']";
+     String empty_result_lable = "//*[@text= 'No languages found']";
+waitForElementPresent(
+        By.xpath(empty_result_lable),
+        "Can not find empty result by the request",
+        15);
+assertElementNotPresent(
+        By.xpath(search_result_locator),
+        "Incorrectly We found some result by request");
+
+  }
+
   private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds) {
     WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
     wait.withMessage(error_message + "\n");
@@ -182,5 +208,16 @@ public class FirstTest {
             .moveTo(left_x, middle_y)
             .release()
             .perform();
+  }
+  private int getAmountOfElements (By by){
+    List elements = driver.findElements(by);
+    return elements.size();
+  }
+  private  void assertElementNotPresent (By by, String error_message){
+    int amount_of_elements = getAmountOfElements(by);
+    if (amount_of_elements>0){
+      String default_message = "An element '" + by.toString() + "' Supposed to be not present";
+      throw  new AssertionError(default_message + " " + error_message);
+    }
   }
 }
