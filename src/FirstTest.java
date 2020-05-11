@@ -1,4 +1,5 @@
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
@@ -14,6 +15,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
 import java.util.List;
+
+
+
 
 public class FirstTest {
   private AppiumDriver driver;
@@ -40,19 +44,19 @@ public class FirstTest {
 
   @Test
   public void testSwipeToLeftAndRite(){
-    waitForElementPresent(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 10);
+    waitForElementPresent(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 20);
 
     waitForElementPresentAndClick(
             By.xpath("//android.widget.ImageView[@content-desc=\"Continue\"]"),
                    "Cannot find element",
-                    30);
+                    40);
     waitForElementPresent(
-           By.xpath("//*[contains(@text,'New ways to explore')]"), "Cannot find element", 10);
+           By.xpath("//*[contains(@text,'New ways to explore')]"), "Cannot find element", 30);
    swipElementToLeft(
            By.xpath("//*[contains(@text,'New ways to explore')]"), "Cannot find element");
 
     waitForElementPresent(
-            By.xpath("//*[contains(@text,'Reading lists with sync')]"), "Cannot find element", 5);
+            By.xpath("//*[contains(@text,'Reading lists with sync')]"), "Cannot find element", 15);
     }
 
 
@@ -82,9 +86,6 @@ public class FirstTest {
     waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
 
     waitForElementPresent(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
-
-
-
     //Проверка на наличие теска (assert - exp. result Text "Simple English")
     WebElement subtitle = waitForElementPresent(By.id("org.wikipedia:id/language_subtitle"), "Can not find subtitle", 10);
     String subtitl = subtitle.getAttribute("text");
@@ -111,8 +112,8 @@ public class FirstTest {
 
     waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
 
-    //Ввожу переменную "English"
-    String subtitle_of_language = "YUFYYFYTFD";
+    //Ввожу invalid переменную "fuyfyuffuy"
+    String subtitle_of_language = "fuyfyuffuy";
     waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
 
     String search_result_locator = "//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']";
@@ -126,8 +127,73 @@ assertElementNotPresent(
         "Incorrectly We found some result by request");
 
   }
+  @Test
+  public void testAddAndRemoveNewLanguage () {
+    waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
 
-  private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds) {
+    waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
+
+    waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+
+    //Ввожу переменную "English"
+    String subtitle_of_language = "English";
+    waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
+
+    waitForElementPresent(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
+    //Проверка на наличие теска (assert - exp. result Text "Simple English")
+    WebElement subtitle = waitForElementPresent(By.id("org.wikipedia:id/language_subtitle"), "Can not find subtitle", 10);
+    String subtitl = subtitle.getAttribute("text");
+    Assert.assertEquals("We see unexpected subtitle", "Simple English", subtitl);
+
+    //Добавляю 2 языка
+    waitForElementPresentAndClick(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
+    waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
+    waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+    waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
+    waitForElementPresentAndClick(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Simple English']"), "Cannot find element search by the text 'Old English'", 15);
+    //Ожидаю папку Wikipedia languages с сохраненными языками
+    waitForElementPresent(By.xpath("//*[contains(@text,'Wikipedia languages')]"), "Cannot find element", 5);
+
+    //Проверяю что 2 языка добавлены в папку
+    WebElement titleSimpleEnglish = waitForElementPresent(By.xpath("//*[contains(@text,'Simple English')]"), "Cannot find element", 5);
+    String titleSimpleEnglissh = titleSimpleEnglish.getAttribute("text");
+    Assert.assertEquals("We see unexpected subtitle", "Simple English", titleSimpleEnglissh);
+
+    WebElement titleOldEnglish = waitForElementPresent(By.xpath("//*[contains(@text,'Ænglisc')]"), "Cannot find element", 5);
+    String titleOldEnglissh = titleOldEnglish.getAttribute("text");
+    Assert.assertEquals("We see unexpected subtitle", "Ænglisc", titleOldEnglissh);
+
+    //Удаляю языки из папки
+    waitForElementPresentAndClick(By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]"), "Cannot find element", 5);
+
+    waitForElementPresentAndClick(By.xpath("//*[@resource-id='org.wikipedia:id/content']"), "Cannot find element search by the text 'Remove language'", 15);
+    //Выбор № 2 из списка элементов
+    List <WebElement> elements = (List <WebElement>) driver.findElements(By.id("org.wikipedia:id/wiki_language_title"));
+    elements.get(1).click();
+
+    //Выбор № 3 из списка элементов
+    List <WebElement> element = (List <WebElement>) driver.findElements(By.id("org.wikipedia:id/wiki_language_title"));
+    element.get(2).click();
+
+    waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc='Delete selected items']"), "Cannot find element", 5);
+
+    waitForElementPresent(
+            By.xpath("//*[@resource-id='org.wikipedia:id/alertTitle']"),
+           "Cannot find element", 10);
+
+    List <WebElement> buttonOK = (List<WebElement>) driver.findElementsById("android:id/button1");
+    buttonOK.get(0).click();
+
+    waitForElementPresent(By.xpath("//*[contains(@text,'Wikipedia languages')]"), "Cannot find element", 5);
+//Проверить что удаленные ранее элементы не присутствуют на странице
+   waitForElementNotPresent(
+            By.xpath("//*[contains(@text,'Ænglisc')]"), "Cannot find element", 5);
+
+    waitForElementNotPresent(
+            By.xpath("//*[contains(@text,'Simple English')]"), "Cannot find element", 5);
+      }
+
+   private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds) {
     WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
     wait.withMessage(error_message + "\n");
     return wait.until(ExpectedConditions.presenceOfElementLocated(by));
@@ -204,7 +270,7 @@ assertElementNotPresent(
     TouchAction action = new TouchAction(driver);
     action
             .press(right_x, middle_y)
-            .waitAction(150)
+            .waitAction(300)
             .moveTo(left_x, middle_y)
             .release()
             .perform();
