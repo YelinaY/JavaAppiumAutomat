@@ -234,6 +234,7 @@ assertElementPresent(
             title_after_second_rotation
     );
   }
+ /*
   @Test
   public void testChecTitleInBackground(){
     //Open APK
@@ -244,7 +245,7 @@ assertElementPresent(
             "Cannot find article after returning from background", 5);
 
   }
-
+*/
   @Test
   public void testAssertElementPresent() {
     waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
