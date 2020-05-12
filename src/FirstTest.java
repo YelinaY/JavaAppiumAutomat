@@ -266,6 +266,13 @@ assertElementPresent(
     assertElementPresent(
             By.xpath(empty_result_lable),
             "Incorrectly We found some result by request");
+
+    WebElement title = waitForElementPresent(
+            By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Simple English']"),
+            "Can not find title", 10);
+    String subtitln = title.getAttribute("text");
+    Assert.assertEquals("We see unexpected subtitle", "Simple English", subtitln);
+
   }
 
 
