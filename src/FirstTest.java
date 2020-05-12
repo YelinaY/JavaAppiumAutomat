@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -199,6 +200,41 @@ assertElementNotPresent(
     return wait.until(ExpectedConditions.presenceOfElementLocated(by));
   }
 
+  @Test
+  public void testChangeScreanOrientation(){
+    //Open APK
+    waitForElementPresent(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
+
+    String title_before_rotation = waitForElementAndGetAttribute(
+            By.id("org.wikipedia:id/view_onboarding_page_primary_text"),
+            "text",
+            "Not find Title of artcle",
+            5);
+    driver.rotate(ScreenOrientation.LANDSCAPE);
+
+    String title_after_rotation = waitForElementAndGetAttribute(
+            By.id("org.wikipedia:id/view_onboarding_page_primary_text"),
+            "text",
+            "Not find Title of artcle",
+            5);
+    Assert.assertEquals(
+            "Articale title have been changed after screen rotation",
+            title_before_rotation,
+            title_after_rotation
+    );
+    //Сравнение элементов
+    driver.rotate(ScreenOrientation.PORTRAIT);
+    String title_after_second_rotation = waitForElementAndGetAttribute(
+            By.id("org.wikipedia:id/view_onboarding_page_primary_text"),
+            "text",
+            "Not find Title of artcle",
+            5);
+    Assert.assertEquals(
+            "Articale title have been changed after screen rotation",
+            title_before_rotation,
+            title_after_second_rotation
+    );
+  }
   /*
     private WebElement waitForElementPresent(By by, String error_message) {
       return waitForElementPresent(by, error_message, 5);
@@ -285,5 +321,10 @@ assertElementNotPresent(
       String default_message = "An element '" + by.toString() + "' Supposed to be not present";
       throw  new AssertionError(default_message + " " + error_message);
     }
+  }
+  //Получение атрибутов элемента (название сттьи
+  private String waitForElementAndGetAttribute (By by, String attribute, String error_message, long timeoutInSeconds){
+    WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+    return  element.getAttribute(attribute);
   }
 }
