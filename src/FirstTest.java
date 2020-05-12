@@ -235,6 +235,16 @@ assertElementNotPresent(
             title_after_second_rotation
     );
   }
+  @Test
+  public void testChecTitleInBackground(){
+    //Open APK
+    waitForElementPresent(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
+    driver.runAppInBackground(10);
+
+    waitForElementPresent(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"),
+            "Cannot find article after returning from background", 5);
+
+  }
   /*
     private WebElement waitForElementPresent(By by, String error_message) {
       return waitForElementPresent(by, error_message, 5);
