@@ -1,5 +1,4 @@
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
@@ -123,7 +122,7 @@ waitForElementPresent(
         By.xpath(empty_result_lable),
         "Can not find empty result by the request",
         15);
-assertElementNotPresent(
+assertElementPresent(
         By.xpath(search_result_locator),
         "Incorrectly We found some result by request");
 
@@ -245,6 +244,33 @@ assertElementNotPresent(
             "Cannot find article after returning from background", 5);
 
   }
+
+  @Test
+  public void testAssertElementPresent() {
+    waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
+
+    waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
+
+    waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+
+    //Ввожу invalid переменную "English"
+    String subtitle_of_language = "English";
+    waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
+
+    String search_result_locator = "//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']";
+    String empty_result_lable = "//*[@text= 'No languages found']";
+    waitForElementPresent(
+            By.xpath(search_result_locator),
+            "Can not find empty result by the request",
+            15);
+    assertElementPresent(
+            By.xpath(empty_result_lable),
+            "Incorrectly We found some result by request");
+  }
+
+
+
+
   /*
     private WebElement waitForElementPresent(By by, String error_message) {
       return waitForElementPresent(by, error_message, 5);
@@ -325,7 +351,7 @@ assertElementNotPresent(
     List elements = driver.findElements(by);
     return elements.size();
   }
-  private  void assertElementNotPresent (By by, String error_message){
+  private  void assertElementPresent(By by, String error_message){
     int amount_of_elements = getAmountOfElements(by);
     if (amount_of_elements>0){
       String default_message = "An element '" + by.toString() + "' Supposed to be not present";
@@ -337,4 +363,5 @@ assertElementNotPresent(
     WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
     return  element.getAttribute(attribute);
   }
+
 }

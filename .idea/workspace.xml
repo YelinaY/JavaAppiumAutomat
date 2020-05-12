@@ -19,14 +19,14 @@
       <file leaf-file-name="FirstTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="237" column="3" lean-forward="true" selection-start-line="237" selection-start-column="3" selection-end-line="237" selection-end-column="3" />
+            <state relative-caret-position="239">
+              <caret line="266" column="39" selection-start-line="266" selection-start-column="21" selection-end-line="266" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1349#1350#0" expanded="true" />
                 <element signature="e#1372#1373#0" expanded="true" />
-                <element signature="e#13132#13133#0" expanded="true" />
-                <element signature="e#13154#13155#0" expanded="true" />
+                <element signature="e#13292#13293#0" expanded="true" />
+                <element signature="e#13314#13315#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,7 +122,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FirstTest.testChecTitleInBackground">
+  <component name="RunManager" selected="JUnit.FirstTest.testAssertElementPresent">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -160,6 +160,23 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="FirstTest.testAssertElementPresent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAppiumAutomat" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="testAssertElementPresent" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration name="FirstTest.testChangeScreanOrientation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaAppiumAutomat" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -184,23 +201,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="FirstTest" />
       <option name="METHOD_NAME" value="testChecTitleInBackground" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="FirstTest.testSwipeToLeftAndRite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JavaAppiumAutomat" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FirstTest" />
-      <option name="METHOD_NAME" value="testSwipeToLeftAndRite" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -251,18 +251,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.FirstTest" />
-      <item itemvalue="JUnit.FirstTest.testSwipeToLeftAndRite" />
       <item itemvalue="JUnit.FirstTest.testAddAndRemoveNewLanguage" />
       <item itemvalue="JUnit.FirstTest.testChangeScreanOrientation" />
       <item itemvalue="JUnit.FirstTest.testChecTitleInBackground" />
+      <item itemvalue="JUnit.FirstTest.testAssertElementPresent" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FirstTest.testAssertElementPresent" />
         <item itemvalue="JUnit.FirstTest.testChecTitleInBackground" />
         <item itemvalue="JUnit.FirstTest.testChangeScreanOrientation" />
         <item itemvalue="JUnit.FirstTest.testAddAndRemoveNewLanguage" />
         <item itemvalue="JUnit.FirstTest" />
-        <item itemvalue="JUnit.FirstTest.testSwipeToLeftAndRite" />
       </list>
     </recent_temporary>
   </component>
@@ -280,18 +280,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FirstTest_testChangeScreanOrientation - 2020.05.12 at 08h 29m 06s.xml">
-      <configuration name="FirstTest.testChangeScreanOrientation" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testChangeScreanOrientation - 2020.05.12 at 08h 41m 08s.xml">
-      <configuration name="FirstTest.testChangeScreanOrientation" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testChangeScreanOrientation - 2020.05.12 at 08h 50m 41s.xml">
-      <configuration name="FirstTest.testChangeScreanOrientation" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testChangeScreanOrientation - 2020.05.12 at 08h 53m 16s.xml">
-      <configuration name="FirstTest.testChangeScreanOrientation" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FirstTest_testChangeScreanOrientation - 2020.05.12 at 08h 59m 02s.xml">
       <configuration name="FirstTest.testChangeScreanOrientation" configurationId="JUnit" />
     </history-entry>
@@ -310,9 +298,22 @@
     <history-entry file="FirstTest_testChecTitleInBackground - 2020.05.12 at 10h 35m 45s.xml">
       <configuration name="FirstTest.testChecTitleInBackground" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="FirstTest_testAssertElementPresent - 2020.05.12 at 20h 27m 17s.xml">
+      <configuration name="FirstTest.testAssertElementPresent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAssertElementPresent - 2020.05.12 at 20h 31m 00s.xml">
+      <configuration name="FirstTest.testAssertElementPresent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAssertElementPresent - 2020.05.12 at 20h 32m 19s.xml">
+      <configuration name="FirstTest.testAssertElementPresent" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAssertElementPresent - 2020.05.12 at 20h 37m 07s.xml">
+      <configuration name="FirstTest.testAssertElementPresent" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -323,7 +324,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41328412" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33763838" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="4" />
@@ -381,8 +382,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -395,8 +396,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -409,8 +410,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -423,8 +424,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -437,8 +438,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -451,8 +452,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -466,8 +467,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -480,8 +481,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -494,8 +495,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -508,8 +509,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -522,8 +523,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -536,8 +537,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -550,8 +551,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -564,8 +565,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -578,8 +579,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -592,8 +593,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -606,8 +607,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -620,8 +621,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -634,8 +635,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -648,8 +649,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -662,8 +663,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -676,8 +677,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -690,8 +691,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -704,8 +705,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -718,8 +719,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -732,8 +733,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -746,8 +747,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -760,8 +761,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -774,8 +775,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -788,8 +789,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -802,8 +803,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -816,8 +817,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -830,8 +831,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -844,8 +845,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -858,8 +859,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -872,8 +873,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -886,8 +887,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -900,8 +901,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -914,8 +915,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -928,8 +929,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -942,8 +943,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -956,8 +957,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -970,8 +971,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -984,8 +985,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -998,8 +999,8 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1028,14 +1029,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="237" column="3" lean-forward="true" selection-start-line="237" selection-start-column="3" selection-end-line="237" selection-end-column="3" />
+        <state relative-caret-position="239">
+          <caret line="266" column="39" selection-start-line="266" selection-start-column="21" selection-end-line="266" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1349#1350#0" expanded="true" />
             <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#13132#13133#0" expanded="true" />
-            <element signature="e#13154#13155#0" expanded="true" />
+            <element signature="e#13292#13293#0" expanded="true" />
+            <element signature="e#13314#13315#0" expanded="true" />
           </folding>
         </state>
       </provider>
