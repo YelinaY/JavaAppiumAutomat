@@ -1,5 +1,6 @@
 import lib.CoreTestCaes;
 import lib.ui.MainPageObject;
+import lib.ui.SearchPageObject;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -21,6 +22,17 @@ public class FirstTest extends CoreTestCaes {
   }
 
   @Test
+  public void testSearchLanguage () {
+    SearchPageObject SearchPageObject = new SearchPageObject(driver);
+    SearchPageObject.initSearchInput();
+    SearchPageObject.typeSearchLine("English");
+    SearchPageObject.waitForSearchResult("Old English");
+  }
+
+
+
+
+    @Test
   public void testSwipeToLeftAndRite(){
     MainPageObject.waitForElementPresent(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 20);
 
