@@ -22,8 +22,12 @@ public class SearchPageObject extends MainPageObject {
   public void initSearchInput() {
     this.waitForElementPresentAndClick(By.xpath(ADD_OR_EDIT_LANGUAGES), "Can not find element", 5);
     this.waitForElementPresentAndClick(By.xpath(ADD_LANGUAGE), "Can not find element", 5);
-    this.waitForElementPresentAndClick(By.xpath(ICON_SEARCH), "Icon can not find", 5);
   }
+  public void iconSearch() {
+    this.waitForElementPresentAndClick(By.xpath(ICON_SEARCH), "Icon can not find", 5);
+
+  }
+
   public void typeSearchLine(String search_line){
     this.waitForElementAndSendKeys(By.xpath(SEARCH_INPUT), search_line, "Can not find element", 5);
   }

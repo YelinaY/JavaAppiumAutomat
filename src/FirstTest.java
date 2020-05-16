@@ -25,6 +25,7 @@ public class FirstTest extends CoreTestCaes {
   public void testSearchLanguage () {
     SearchPageObject SearchPageObject = new SearchPageObject(driver);
     SearchPageObject.initSearchInput();
+    SearchPageObject.iconSearch();
     SearchPageObject.typeSearchLine("English");
     SearchPageObject.waitForSearchResult("Old English");
   }
