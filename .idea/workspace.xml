@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="377a75b7-1afc-4e1c-a8d4-c5cd83cc3220" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FirstTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FirstTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/ui/SearchPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/ui/SearchPageObject.java" afterDir="false" />
     </list>
@@ -19,8 +18,8 @@
       <file leaf-file-name="FirstTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3145">
-              <caret line="221" selection-start-line="221" selection-end-line="221" />
+            <state relative-caret-position="38">
+              <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,7 +30,7 @@
       <file leaf-file-name="MainPageObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/ui/MainPageObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
+            <state relative-caret-position="-289">
               <caret line="65" column="35" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -43,13 +42,16 @@
       <file leaf-file-name="SearchPageObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/ui/SearchPageObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+            <state relative-caret-position="1664">
+              <caret line="105" column="60" selection-start-line="105" selection-start-column="48" selection-end-line="105" selection-end-column="60" />
               <folding>
-                <element signature="e#2516#2517#0" expanded="true" />
-                <element signature="e#2550#2551#0" expanded="true" />
-                <element signature="e#3085#3086#0" expanded="true" />
-                <element signature="e#3098#3099#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#686#687#0" expanded="true" />
+                <element signature="e#709#710#0" expanded="true" />
+                <element signature="e#3044#3045#0" expanded="true" />
+                <element signature="e#3128#3129#0" expanded="true" />
+                <element signature="e#3448#3449#0" expanded="true" />
+                <element signature="e#3532#3533#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,7 +149,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.FirstTest">
+  <component name="RunManager" selected="JUnit.FirstTest.testAddAndRemoveNewLanguage">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -168,13 +170,30 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="FirstTest.testAssertElementPresent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FirstTest.testAddAndRemoveNewLanguage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaAppiumAutomat" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="FirstTest" />
-      <option name="METHOD_NAME" value="testAssertElementPresent" />
+      <option name="METHOD_NAME" value="testAddAndRemoveNewLanguage" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="FirstTest.testAmountOfNotEmptySearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaAppiumAutomat" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FirstTest" />
+      <option name="METHOD_NAME" value="testAmountOfNotEmptySearch" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -192,23 +211,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="FirstTest" />
       <option name="METHOD_NAME" value="testCancelSearch" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="FirstTest.testSearchLanguage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JavaAppiumAutomat" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FirstTest" />
-      <option name="METHOD_NAME" value="testSearchLanguage" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -276,18 +278,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.FirstTest" />
-      <item itemvalue="JUnit.FirstTest.testAssertElementPresent" />
-      <item itemvalue="JUnit.FirstTest.testSearchLanguage" />
       <item itemvalue="JUnit.FirstTest.testCancelSearch" />
       <item itemvalue="JUnit.FirstTest.testSwipeToLeftAndRite" />
+      <item itemvalue="JUnit.FirstTest.testAmountOfNotEmptySearch" />
+      <item itemvalue="JUnit.FirstTest.testAddAndRemoveNewLanguage" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FirstTest.testAddAndRemoveNewLanguage" />
+        <item itemvalue="JUnit.FirstTest.testAmountOfNotEmptySearch" />
         <item itemvalue="JUnit.FirstTest" />
         <item itemvalue="JUnit.FirstTest.testCancelSearch" />
         <item itemvalue="JUnit.FirstTest.testSwipeToLeftAndRite" />
-        <item itemvalue="JUnit.FirstTest.testSearchLanguage" />
-        <item itemvalue="JUnit.FirstTest.testAssertElementPresent" />
       </list>
     </recent_temporary>
   </component>
@@ -305,35 +307,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FirstTest - 2020.05.17 at 02h 05m 44s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testSwipeToLeftAndRite - 2020.05.17 at 02h 07m 02s.xml">
-      <configuration name="FirstTest.testSwipeToLeftAndRite" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest - 2020.05.17 at 02h 17m 02s.xml">
-      <configuration name="FirstTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testSwipeToLeftAndRite - 2020.05.17 at 02h 53m 49s.xml">
-      <configuration name="FirstTest.testSwipeToLeftAndRite" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testSwipeToLeftAndRite - 2020.05.17 at 02h 58m 17s.xml">
-      <configuration name="FirstTest.testSwipeToLeftAndRite" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testSwipeToLeftAndRite - 2020.05.17 at 03h 08m 08s.xml">
-      <configuration name="FirstTest.testSwipeToLeftAndRite" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testCancelSearch - 2020.05.17 at 03h 46m 07s.xml">
-      <configuration name="FirstTest.testCancelSearch" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="FirstTest_testCancelSearch - 2020.05.17 at 03h 49m 17s.xml">
-      <configuration name="FirstTest.testCancelSearch" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="FirstTest_testCancelSearch - 2020.05.17 at 03h 52m 16s.xml">
       <configuration name="FirstTest.testCancelSearch" configurationId="JUnit" />
     </history-entry>
     <history-entry file="FirstTest - 2020.05.17 at 04h 03m 49s.xml">
       <configuration name="FirstTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAmountOfNotEmptySearch - 2020.05.17 at 06h 23m 26s.xml">
+      <configuration name="FirstTest.testAmountOfNotEmptySearch" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAmountOfNotEmptySearch - 2020.05.17 at 06h 25m 02s.xml">
+      <configuration name="FirstTest.testAmountOfNotEmptySearch" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAmountOfNotEmptySearch - 2020.05.17 at 06h 28m 03s.xml">
+      <configuration name="FirstTest.testAmountOfNotEmptySearch" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAddAndRemoveNewLanguage - 2020.05.17 at 07h 18m 38s.xml">
+      <configuration name="FirstTest.testAddAndRemoveNewLanguage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAddAndRemoveNewLanguage - 2020.05.17 at 07h 22m 47s.xml">
+      <configuration name="FirstTest.testAddAndRemoveNewLanguage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAddAndRemoveNewLanguage - 2020.05.17 at 07h 24m 48s.xml">
+      <configuration name="FirstTest.testAddAndRemoveNewLanguage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAddAndRemoveNewLanguage - 2020.05.17 at 07h 30m 02s.xml">
+      <configuration name="FirstTest.testAddAndRemoveNewLanguage" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FirstTest_testAddAndRemoveNewLanguage - 2020.05.17 at 07h 33m 02s.xml">
+      <configuration name="FirstTest.testAddAndRemoveNewLanguage" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -854,7 +856,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/ui/MainPageObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
+        <state relative-caret-position="-289">
           <caret line="65" column="35" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -864,21 +866,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/ui/SearchPageObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="70" column="36" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="36" />
+        <state relative-caret-position="1664">
+          <caret line="105" column="60" selection-start-line="105" selection-start-column="48" selection-end-line="105" selection-end-column="60" />
           <folding>
-            <element signature="e#2516#2517#0" expanded="true" />
-            <element signature="e#2550#2551#0" expanded="true" />
-            <element signature="e#3085#3086#0" expanded="true" />
-            <element signature="e#3098#3099#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#3044#3045#0" expanded="true" />
+            <element signature="e#3128#3129#0" expanded="true" />
+            <element signature="e#3448#3449#0" expanded="true" />
+            <element signature="e#3532#3533#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FirstTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3145">
-          <caret line="221" selection-start-line="221" selection-end-line="221" />
+        <state relative-caret-position="38">
+          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

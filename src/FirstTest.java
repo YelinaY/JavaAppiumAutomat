@@ -64,20 +64,9 @@ public class FirstTest extends CoreTestCaes {
     SearchPageObject SearchPageObject = new SearchPageObject(driver);
     SearchPageObject.clickOnButtonsLanguages();
     SearchPageObject.iconSearch();
-
-    //Ввожу invalid переменную "fuyfyuffuy"
-    String subtitle_of_language = "fuyfyuffuy";
-    MainPageObject.waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
-
-    String search_result_locator = "//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']";
-     String empty_result_lable = "//*[@text= 'No languages found']";
-    MainPageObject.waitForElementPresent(
-        By.xpath(empty_result_lable),
-        "Can not find empty result by the request",
-        15);
-    MainPageObject.assertElementPresent(
-        By.xpath(search_result_locator),
-        "Incorrectly We found some result by request");
+    SearchPageObject.typeSearchLine("fuyfyuffuy");
+    SearchPageObject.waitEmptySearchResult();
+   SearchPageObject.assertTextOfEmptySearchResult();
 
   }
   @Test
@@ -85,64 +74,29 @@ public class FirstTest extends CoreTestCaes {
     SearchPageObject SearchPageObject = new SearchPageObject(driver);
     SearchPageObject.clickOnButtonsLanguages();
     SearchPageObject.iconSearch();
+    SearchPageObject.typeSearchLine("English");
+    SearchPageObject.waitForSearchResult("Old English");
+    SearchPageObject.selectLanguageFromTheListOldEnglish();
+    SearchPageObject.clickOnButtonAddLanguage();
+    SearchPageObject.iconSearch();
+    SearchPageObject.typeSearchLine("English");
+    SearchPageObject.waitForSearchResult("Simple English");
+    SearchPageObject.selectLanguageFromTheListSimpleEnglish();
+    SearchPageObject.waitWikipediaLanguagesFaulder();
+    SearchPageObject.subtitleLanguagesAssert();
+    SearchPageObject.removeLanguagesFromFaulder();
+    SearchPageObject.verifyThatFirstLanguageRemoved();
+    SearchPageObject.verifyThatSecondLanguageRemoved();
 
-    //Ввожу переменную "English"
+    /*Ввожу переменную "English"
     String subtitle_of_language = "English";
     MainPageObject.waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresent(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
     //Проверка на наличие теска (assert - exp. result Text "Simple English")
     WebElement subtitle = MainPageObject.waitForElementPresent(By.id("org.wikipedia:id/language_subtitle"), "Can not find subtitle", 10);
     String subtitl = subtitle.getAttribute("text");
     Assert.assertEquals("We see unexpected subtitle", "Simple English", subtitl);
-
-    //Добавляю 2 языка
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
-    MainPageObject.waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Simple English']"), "Cannot find element search by the text 'Old English'", 15);
-    //Ожидаю папку Wikipedia languages с сохраненными языками
-    MainPageObject.waitForElementPresent(By.xpath("//*[contains(@text,'Wikipedia languages')]"), "Cannot find element", 5);
-
-    //Проверяю что 2 языка добавлены в папку
-    WebElement titleSimpleEnglish = MainPageObject.waitForElementPresent(By.xpath("//*[contains(@text,'Simple English')]"), "Cannot find element", 5);
-    String titleSimpleEnglissh = titleSimpleEnglish.getAttribute("text");
-    Assert.assertEquals("We see unexpected subtitle", "Simple English", titleSimpleEnglissh);
-
-    WebElement titleOldEnglish = MainPageObject.waitForElementPresent(By.xpath("//*[contains(@text,'Ænglisc')]"), "Cannot find element", 5);
-    String titleOldEnglissh = titleOldEnglish.getAttribute("text");
-    Assert.assertEquals("We see unexpected subtitle", "Ænglisc", titleOldEnglissh);
-
-    //Удаляю языки из папки
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//android.widget.ImageView[@content-desc=\"More options\"]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[@resource-id='org.wikipedia:id/content']"), "Cannot find element search by the text 'Remove language'", 15);
-    //Выбор № 2 из списка элементов
-    List <WebElement> elements = (List <WebElement>) driver.findElements(By.id("org.wikipedia:id/wiki_language_title"));
-    elements.get(1).click();
-
-    //Выбор № 3 из списка элементов
-    List <WebElement> element = (List <WebElement>) driver.findElements(By.id("org.wikipedia:id/wiki_language_title"));
-    element.get(2).click();
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc='Delete selected items']"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresent(
-            By.xpath("//*[@resource-id='org.wikipedia:id/alertTitle']"),
-           "Cannot find element", 10);
-
-    List <WebElement> buttonOK = (List<WebElement>) driver.findElementsById("android:id/button1");
-    buttonOK.get(0).click();
-
-    MainPageObject.waitForElementPresent(By.xpath("//*[contains(@text,'Wikipedia languages')]"), "Cannot find element", 5);
-//Проверить что удаленные ранее элементы не присутствуют на странице
-    MainPageObject.waitForElementNotPresent(
-            By.xpath("//*[contains(@text,'Ænglisc')]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementNotPresent(
-            By.xpath("//*[contains(@text,'Simple English')]"), "Cannot find element", 5);
-      }
+*/
+    }
 
 
   @Test
