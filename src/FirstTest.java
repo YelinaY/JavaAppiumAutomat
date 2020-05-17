@@ -6,11 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.List;
-
 
 
 
@@ -24,84 +20,50 @@ public class FirstTest extends CoreTestCaes {
   @Test
   public void testSearchLanguage () {
     SearchPageObject SearchPageObject = new SearchPageObject(driver);
-    SearchPageObject.initSearchInput();
+    SearchPageObject.clickOnButtonsLanguages();
     SearchPageObject.iconSearch();
     SearchPageObject.typeSearchLine("English");
     SearchPageObject.waitForSearchResult("Old English");
   }
 
-
-
-
     @Test
   public void testSwipeToLeftAndRite(){
-    MainPageObject.waitForElementPresent(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 20);
-
-    MainPageObject.waitForElementPresentAndClick(
-            By.xpath("//android.widget.ImageView[@content-desc=\"Continue\"]"),
-                   "Cannot find element",
-                    40);
-    MainPageObject.waitForElementPresent(
-           By.xpath("//*[contains(@text,'New ways to explore')]"), "Cannot find element", 30);
-   MainPageObject.swipElementToLeft(
-           By.xpath("//*[contains(@text,'New ways to explore')]"), "Cannot find element");
-
-    MainPageObject.waitForElementPresent(
-            By.xpath("//*[contains(@text,'Reading lists with sync')]"), "Cannot find element", 15);
+      SearchPageObject SearchPageObject = new SearchPageObject(driver);
+      SearchPageObject.waitFirstButtonAddOrEditLanguage();
+      SearchPageObject.clickOnArrowMovePageToRight();
+      SearchPageObject.waitArticleFromSecondPage();
+      SearchPageObject.swipePageToleft();
+      SearchPageObject.waitArticleFromFirstPage();
     }
 
-
+    @Test
+    public void testSwipeUpToFindElement(){
+      SearchPageObject SearchPageObject = new SearchPageObject(driver);
+      SearchPageObject.clickOnButtonsLanguages();
+      SearchPageObject.swipePageUntilElementsNederlands();
+    }
 
   @Test
   public void testCancelSearch() {
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresent(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
-
-     //прокрутка страницы вниз  swipeUp(2000);
-     //Прокрутка до искомого элемента
-
-    MainPageObject.swipeUpToFindElement(
-            By.xpath("//*[@text='Nederlands']"),
-            "Can not find element 'Nederlands' by the swiping",
-           40
-
-    );
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
-
-    //Ввожу переменную "English"
-    String subtitle_of_language = "English";
-    MainPageObject.waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), subtitle_of_language, "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresent(By.xpath("//*[@resource-id='org.wikipedia:id/languages_list_recycler']//*[@text='Old English']"), "Cannot find element search by the text 'Old English'", 15);
+    SearchPageObject SearchPageObject = new SearchPageObject(driver);
+    SearchPageObject.clickOnButtonsLanguages();
+    SearchPageObject.iconSearch();
+    SearchPageObject.typeSearchLine("English");
+    SearchPageObject.waitForSearchResult("Old English");
     //Проверка на наличие теска (assert - exp. result Text "Simple English")
     WebElement subtitle = MainPageObject.waitForElementPresent(By.id("org.wikipedia:id/language_subtitle"), "Can not find subtitle", 10);
     String subtitl = subtitle.getAttribute("text");
     Assert.assertEquals("We see unexpected subtitle", "Simple English", subtitl);
-
-    //Стереть текст из поля ввода
-    MainPageObject.waitForElementAndClear(By.id("org.wikipedia:id/search_src_text"), // Стираю текст с поля
-            "Can not find search field", 5);
-    /* Ожидать элемент "X"
-    waitForElementPresent(By.id("org.wikipedia:id/search_close_btn"), //button "X"
-            "Can not find 'Search input'", 5);
-           Oжидать элемент "X"  и кликнуть на него
-    waitForElementPresentAndClick(By.id("org.wikipedia:id/search_close_btn"), "Can not find 'button 'X'", 5);
-    */
-    MainPageObject.waitForElementNotPresent(By.id("org.wikipedia:id/search_close_btn"), "Element 'X' still present", 5);
+    SearchPageObject.removeTextFromSearchLine();
+    SearchPageObject.waitElementXInvisible();
   }
 
 
   @Test
   public void testAmountOfNotEmptySearch() {
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+    SearchPageObject SearchPageObject = new SearchPageObject(driver);
+    SearchPageObject.clickOnButtonsLanguages();
+    SearchPageObject.iconSearch();
 
     //Ввожу invalid переменную "fuyfyuffuy"
     String subtitle_of_language = "fuyfyuffuy";
@@ -120,11 +82,9 @@ public class FirstTest extends CoreTestCaes {
   }
   @Test
   public void testAddAndRemoveNewLanguage () {
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+    SearchPageObject SearchPageObject = new SearchPageObject(driver);
+    SearchPageObject.clickOnButtonsLanguages();
+    SearchPageObject.iconSearch();
 
     //Ввожу переменную "English"
     String subtitle_of_language = "English";
@@ -234,11 +194,9 @@ public class FirstTest extends CoreTestCaes {
 */
   @Test
   public void testAssertElementPresent() {
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
-
-    MainPageObject.waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+    SearchPageObject SearchPageObject = new SearchPageObject(driver);
+    SearchPageObject.clickOnButtonsLanguages();
+    SearchPageObject.iconSearch();
 
     //Ввожу invalid переменную "English"
     String subtitle_of_language = "English";
@@ -261,9 +219,4 @@ public class FirstTest extends CoreTestCaes {
     Assert.assertEquals("We see unexpected subtitle", "Simple English", subtitln);
 
   }
-
-
-
-
-
 }
