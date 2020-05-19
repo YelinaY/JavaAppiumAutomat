@@ -1,17 +1,16 @@
 import lib.CoreTestCaes;
+import lib.ui.LanguagePageObject;
 import lib.ui.MainPageObject;
 import lib.ui.SearchPageObject;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
-import java.util.List;
 
 
 
 public class FirstTest extends CoreTestCaes {
-  private MainPageObject MainPageObject;
+ private MainPageObject MainPageObject;
   protected void setUp() throws Exception{
     super.setUp();
     MainPageObject = new MainPageObject(driver);
@@ -25,15 +24,30 @@ public class FirstTest extends CoreTestCaes {
     SearchPageObject.typeSearchLine("English");
     SearchPageObject.waitForSearchResult("Old English");
   }
+  @Test
+ public void testCompareLanguageTitle(){
+   SearchPageObject SearchPageObject = new SearchPageObject(driver);
+   SearchPageObject.clickOnButtonsLanguages();
+   SearchPageObject.iconSearch();
+   SearchPageObject.typeSearchLine("English");
+   SearchPageObject.waitForSearchResult("Old English");
+   SearchPageObject.clickByLanguageWithSubString("Old English");
+    LanguagePageObject LanguagePageObject = new LanguagePageObject(driver);
+    String titleOldEnglissh = LanguagePageObject.getLanguageTitle();
+
+   assertEquals(
+           "We see unexpected subtitle", "Ænglisc", titleOldEnglissh);
+    }
+
 
     @Test
-  public void testSwipeToLeftAndRite(){
+  public void testSwipePageToLeft(){
       SearchPageObject SearchPageObject = new SearchPageObject(driver);
       SearchPageObject.waitFirstButtonAddOrEditLanguage();
       SearchPageObject.clickOnArrowMovePageToRight();
       SearchPageObject.waitArticleFromSecondPage();
-      SearchPageObject.swipePageToleft();
-      SearchPageObject.waitArticleFromFirstPage();
+      LanguagePageObject LanguagePageObject = new LanguagePageObject(driver);
+      LanguagePageObject.swipePageToLeft();
     }
 
     @Test
@@ -51,9 +65,10 @@ public class FirstTest extends CoreTestCaes {
     SearchPageObject.typeSearchLine("English");
     SearchPageObject.waitForSearchResult("Old English");
     //Проверка на наличие теска (assert - exp. result Text "Simple English")
-    WebElement subtitle = MainPageObject.waitForElementPresent(By.id("org.wikipedia:id/language_subtitle"), "Can not find subtitle", 10);
+    WebElement subtitle = MainPageObject.waitForElementPresent(
+            By.id("org.wikipedia:id/language_subtitle"), "Can not find subtitle", 10);
     String subtitl = subtitle.getAttribute("text");
-    Assert.assertEquals("We see unexpected subtitle", "Simple English", subtitl);
+    assertEquals("We see unexpected subtitle", "Simple English", subtitl);
     SearchPageObject.removeTextFromSearchLine();
     SearchPageObject.waitElementXInvisible();
   }
@@ -102,33 +117,32 @@ public class FirstTest extends CoreTestCaes {
   @Test
   public void testChangeScreanOrientation(){
     //Open APK
-    MainPageObject.waitForElementPresent(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
-
-    String title_before_rotation = MainPageObject.waitForElementAndGetAttribute(
+    SearchPageObject SearchPageObject = new SearchPageObject(driver);
+    SearchPageObject.waitFirstButtonAddOrEditLanguage();
+    String title_before_rotation = SearchPageObject.waitForElementAndGetAttribute(
             By.id("org.wikipedia:id/view_onboarding_page_primary_text"),
             "text",
             "Not find Title of artcle",
             5);
-    driver.rotate(ScreenOrientation.LANDSCAPE);
-
-    String title_after_rotation = MainPageObject.waitForElementAndGetAttribute(
+    this.rotateScreenLandscape();
+    String title_after_rotation = SearchPageObject.waitForElementAndGetAttribute(
             By.id("org.wikipedia:id/view_onboarding_page_primary_text"),
             "text",
             "Not find Title of artcle",
             5);
-    Assert.assertEquals(
+    assertEquals(
             "Articale title have been changed after screen rotation",
             title_before_rotation,
             title_after_rotation
     );
     //Сравнение элементов
-    driver.rotate(ScreenOrientation.PORTRAIT);
+    this.rotateScreenPortrait();
     String title_after_second_rotation = MainPageObject.waitForElementAndGetAttribute(
             By.id("org.wikipedia:id/view_onboarding_page_primary_text"),
             "text",
             "Not find Title of artcle",
             5);
-    Assert.assertEquals(
+    assertEquals(
             "Articale title have been changed after screen rotation",
             title_before_rotation,
             title_after_second_rotation

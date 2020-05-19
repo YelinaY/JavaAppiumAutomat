@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import junit.framework.TestCase;
 
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
@@ -32,5 +33,10 @@ private static String AppiumURL = "http://127.0.0.1:4723/wd/hub";
     driver.quit();
     super.tearDown();
   }
-
+protected void rotateScreenPortrait (){
+  driver.rotate(ScreenOrientation.PORTRAIT);
 }
+  protected void rotateScreenLandscape (){
+    driver.rotate(ScreenOrientation.LANDSCAPE);
+  }
+        }

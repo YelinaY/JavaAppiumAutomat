@@ -9,7 +9,8 @@ import java.util.List;
 
 public class SearchPageObject extends MainPageObject {
   //Ввод констант
-  private static final String ADD_OR_EDIT_LANGUAGES = "//*[contains(@text,'ADD OR EDIT LANGUAGES')]",
+  private static final String
+          ADD_OR_EDIT_LANGUAGES = "//*[contains(@text,'ADD OR EDIT LANGUAGES')]",
           ADD_LANGUAGE = "//*[contains(@text,'ADD LANGUAGE')]",
           ICON_SEARCH = "//android.widget.TextView[@content-desc=\"Search for a language\"]",
           SEARCH_INPUT = "//*[contains(@text,'Search for a language')]",
@@ -156,5 +157,13 @@ public class SearchPageObject extends MainPageObject {
   }
   public void verifyThatSecondLanguageRemoved (){
     this.waitForElementNotPresent(By.xpath(SIMPLE_ENGLISH_LANGUAGE_SUBTITLE), "Subtitle should not display", 5);
+  }
+  public void clickByLanguageWithSubString(String substring) {
+    String search_result_xpath = getResultSearchElement(substring);
+    this.waitForElementPresentAndClick(By.xpath(search_result_xpath), "Can not find search result with substring", 10);
+  }
+  public String waitForElementAndGetAttribute (By by, String attribute, String error_message, long timeoutInSeconds){
+    WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
+    return  element.getAttribute(attribute);
   }
 }
