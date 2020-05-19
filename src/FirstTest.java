@@ -184,4 +184,55 @@ public class FirstTest extends CoreTestCaes {
     String subtitln = title.getAttribute("text");
     Assert.assertEquals("Subtitle 'Simple English' not find", "Simple English", subtitln);
   }
+
+  @Test
+  public void testAmountNotEmptySearch() {
+    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
+    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
+    MainPageObject.waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+
+    //Ввожу invalid переменную "English"
+    String search_line = "English";
+    MainPageObject.waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), search_line, "Cannot find element", 5);
+    String search_result_Locator = "//*[contains(@text,'Simple English')]";
+    MainPageObject.waitForElementPresent(By.xpath(search_result_Locator), "Cannot find subtitle" + search_result_Locator, 10);
+    int amount_of_search_results = getAmountOfElements(By.xpath(search_result_Locator));
+    Assert.assertTrue("We found few results", amount_of_search_results > 0);
+
+  }
+
+  @Test
+  public void testAmountOfsSearchResult() {
+
+    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD OR EDIT LANGUAGES')]"), "Cannot find element", 5);
+    MainPageObject.waitForElementPresentAndClick(By.xpath("//*[contains(@text,'ADD LANGUAGE')]"), "Cannot find element", 5);
+    MainPageObject.waitForElementPresentAndClick(By.xpath("//android.widget.TextView[@content-desc=\"Search for a language\"]"), "Cannot find element", 5);
+
+    //Ввожу invalid переменную "English"
+    String search_line = "English";
+    MainPageObject.waitForElementAndSendKeys(By.xpath("//*[contains(@text,'Search for a language')]"), search_line, "Cannot find element", 5);
+
+  String empty_search_result_locator = "//*[@text= 'No languages found']";
+  String search_result_subtitle_locator = "//*[contains(@text,'Simple English')]";
+/*
+  MainPageObject.waitForElementPresent(
+          By.xpath(search_result_subtitle_locator),
+          "We did not find any search result by the request" + search_line,
+          10);
+*/
+  assertElementPresent(By.xpath(empty_search_result_locator),
+          "We did not find any search result by the request" + search_line);
+  }
+  private int getAmountOfElements(By by) {
+  List elements = driver.findElements(by);
+  return elements.size();
+  }
+  private  void assertElementPresent (By by, String error_message){
+    int amount_of_elements = getAmountOfElements(by);
+    if (amount_of_elements <=0){
+      String default_message = "Element' " + by.toString() + " ' supposed to be present";
+      throw new AssertionError(default_message + " " + error_message);
+
+    }
+  }
 }
